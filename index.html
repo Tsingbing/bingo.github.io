@@ -1,6 +1,6 @@
 ---
 layout: page
-description: "."
+description: "欢迎来到我的世界"
 ---
 
 {% for post in paginator.posts %}
@@ -9,7 +9,8 @@ description: "."
         <h2 class="post-title">
             {{ post.title }}
         </h2>
-        {% if post.subtitle %}
+        <!-- 
+            {% if post.subtitle %}
         <h3 class="post-subtitle">
             {{ post.subtitle }}
         </h3>
@@ -17,6 +18,7 @@ description: "."
         <div class="post-content-preview">
             {{ post.content | strip_html | truncate:200 }}
         </div>
+        -->
     </a>
     <p class="post-meta">
         {{ post.date | date: "%B %-d, %Y" }}
