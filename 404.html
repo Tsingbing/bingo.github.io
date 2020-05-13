@@ -1,65 +1,122 @@
----
-layout: default
-description: "你来到了没有知识的荒原 🙊"
-header-img: "img/404-bg.jpg"
-permalink: /404.html
----
-
-
 <!DOCTYPE html>
 <html lang="en">
+ 
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   <meta name="Keywords" content="关键字,关键词">
-   <meta name="Description" content="描述和简介">
-   <title>Title</title>
-   
-   <style type="text/css">
-       *{margin:0;padding:0;}
-       body,ul,li,ol,dl,dd,p,h1,h2,h3,h4,h5,h6{ margin:0;}
-       a{text-decoration:none;color: inherit;}
-       img{display: block;border:none;}
-       ol,ul{list-style:none;}
-       .clearfix:after {content: "";display: block;clear: both;}
-       .fl{ float: left;}
-       .fr{ float: right;}
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/xiao.jpg" ype="image/x-icon" />
+    <title>小姐姐</title>
+    <!-- <script>
+        var x2 = Window.clientWidth;
+        var y2 = window.clientHeight;
+        document.getElementById("d1").style.offsetWidth = "x2 * 0.5" + 'px';
+        document.getElementById("d1").style.offsetHeight = "y2 * 0.5" + 'px';
+    </script> -->
+    <style>
+        #d1 {
+            float: left;
+            position: relative;
+            left: 15%;
+            width: 1000px;
+            height: 600px;
+            background-color: rgb(241, 235, 235);
+            border: 1px solid black;
+            border-radius: 2%;
+            margin-top: 2%;
+        }
  
-       html{
-           height: 100%;
-           background: -webkit-radial-gradient(center,#153170,#000);
-       }
+        #p1 {
+            display: table;
+            margin-top: 10%;
+            margin-left: 32%;
+            text-align: center;
+            font-size: 2em;
+        }
  
-       .heart{ position: relative; width: 300px; height: 300px; margin: 200px auto;transform: rotate(45deg);
-           animation: move 2s infinite alternate ;}
-       .heart div{ position: absolute; width: 200px; height: 200px; background: red;}
-       .heart .middle{ right: 0; bottom: 0; width: 200px; height: 200px;}
-       .heart .left{ left: 0; bottom: 0; border-radius: 50%;}
-       .heart .right{ top: 0; right: 0;border-radius: 50%;}
+        button {
+            width: 100px;
+            height: 40px;
+            font-size: 100%;
+            /* border-radius: 2%; */
+        }
  
-       .heart p{ width: 200px; height: 30px; font: bold 25px/30px "";text-align:center; color: #fff;}
-       .heart p{ position: absolute; right: 0; bottom: 85px; transform: rotate(-45deg);}
+        #b1 {
+            position: absolute;
+            left: 30%;
+            top: 50%;
+        }
  
-       @-webkit-keyframes move{
-           10%{ transform: rotate(45deg) scale(1.1); text-shadow: 0 0 5px #fff; }
-           20%{ transform: rotate(45deg) scale(1.2); text-shadow: 0 0 5px #fff; }
-           30%{ transform: rotate(45deg) scale(1.3); text-shadow: 0 0 5px #fff; }
-           40%{ transform: rotate(45deg) scale(1.2); text-shadow: 0 0 5px #fff; }
-           50%{ transform: rotate(45deg) scale(1.3); text-shadow: 0 0 5px #fff; }
-           60%{ transform: rotate(45deg) scale(1.2); text-shadow: 0 0 5px #fff; }
-           70%{ transform: rotate(45deg) scale(1.3); text-shadow: 0 0 5px #fff; }
-           80%{ transform: rotate(45deg) scale(1.2); text-shadow: 0 0 10px #fff;}
-           90%{ transform: rotate(45deg) scale(1.1); text-shadow: 0 0 5px #fff; }
-       }
- </style>
+        #b2 {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+ 
+        body {
+            background-color: aqua;
+        }
+    </style>
 </head>
+ 
 <body>
-   <div class="heart">
-       <div class="left"></div>
-       <div class="middle"></div>
-       <div class="right"></div>
-       <p>I Love You</p>
-   </div>
+    <div id="d1">
+        <p id="p1">
+            小姐姐你喜欢我吗？
+        </p>
+        <button id="b1">喜欢</button>
+        <button id="b2">不喜欢</button>
+    </div>
+    <script>
+        var x1 = document.getElementById("d1").clientWidth;
+        var y1 = document.getElementById("d1").clientHeight;
+ 
+        // var x = document.getElementById("d1").scrollWidth;
+        // var y = document.getElementById("d1").scrollHeight;
+        var buttons = document.getElementsByTagName("button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].onmouseover = handleMouseover;
+            buttons[i].onclick = handleClick;
+        }
+        function handleClick(e) {
+            if (e.target.id == "b1") {
+                alert("对不起，我是你永远也得不到的男人！");
+            }
+            else if (e.target.id == "b2") {
+                alert("哎呀！点到了!");
+            }
+        }
+ 
+        function handleMouseover(e) {
+            if (e.target.id == "b1") {
+                e.target.title = "快点我啊！";
+            }
+            else if (e.target.id == "b2") {
+                var doc = document.getElementById("b2");
+ 
+                // document.getElementById("p1").innerHTML += "<br>" + x1;
+                // document.getElementById("p1").innerHTML += "<br>" + y1;
+                // document.getElementById("p1").innerHTML += "<br>" + x;
+                // document.getElementById("p1").innerHTML += "<br>" + y;
+                e.target.style.left = Math.random() * (x1 - doc.offsetWidth) + "px";
+                e.target.style.top = Math.random() * (y1 - doc.offsetHeight) + "px";
+ 
+                /*测试按钮位置*/
+                // e.target.style.left = 1000 - 100 + "px";
+                // e.target.style.top = 600 - 40 + "px";
+ 
+                /*查看获取高度宽度 边框值*/
+                // alert(document.getElementById("b2").offsetHeight);
+                // alert(doc.offsetWidth);
+ 
+                /*测试按钮边框取值*/
+                // e.target.style.left = 1000 - doc.offsetWidth + "px";
+                // e.target.style.top = 600 - doc.offsetHeight + "px";
+ 
+                /*测试随机位置仍在鼠标所指位置*/
+                // e.target.style.left = Math.random() * 100 - doc.offsetWidth + "px";
+                // e.target.style.top = Math.random() * 60 - doc.offsetHeight + "px";
+            }
+        }
+    </script>
 </body>
+ 
 </html>
